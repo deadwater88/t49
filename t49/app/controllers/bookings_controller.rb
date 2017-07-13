@@ -69,6 +69,7 @@ class BookingsController < ApplicationController
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     res = http.start {|http| http.request(req) }
+    debugger;
   end
 
 
