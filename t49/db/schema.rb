@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713091558) do
+ActiveRecord::Schema.define(version: 20170713102116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20170713091558) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "watch",       default: false
+  end
+
+  create_table "containers", force: :cascade do |t|
+    t.integer  "booking_id",     null: false
+    t.string   "container_id"
+    t.string   "container_type"
+    t.string   "size"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["booking_id"], name: "index_containers_on_booking_id", using: :btree
+    t.index ["container_id"], name: "index_containers_on_container_id", using: :btree
   end
 
 end

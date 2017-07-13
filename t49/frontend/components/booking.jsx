@@ -3,6 +3,33 @@ import React from 'react';
 class Booking extends React.Component {
   constructor(props){
     super(props);
+    this.toggleWatchBooking = this.toggleWatchBooking.bind(this);
+    this.state = {loader: false};
+  }
+
+  renderWatchButton(){
+    let watch = this.props.booking.watch;
+    return (
+    <div className="watch-button-container">
+      <button onClick={this.toggleWatchBooking}>
+        {watch ? 'Stop Watching' : 'Watch'}
+      </button>
+      {this.state.loader ? <div className="loader bkitem">Loading...</div> : <div className='message'> {this.state.message} </div>}
+    </div>
+    );
+  }
+
+  toggleWatchBooking(e){
+    e.preventDefault();
+    this.setState({loader: true});
+    this.props.watchBooking(this.props.booking.bl_number).then(()=>{
+      let message = this.props.booking.watch ? 'We are now tracking this Booking' : 'We are no longer tracking this booking';
+      this.setState({message});
+    },()=>{
+      this.setState({message: 'Failed to Watch booking'});
+    }).always(()=>{
+      this.setState({loader: false});
+    });
   }
 
   render() {
@@ -14,8 +41,9 @@ class Booking extends React.Component {
       {label: 'Destination', value: destination},
       {label: 'Vessel', value: vessel},
       {label: 'Voyage', value: voyage},
-      {label: 'Vessel ETA', value: vessel_eta}
+      {label: 'Vessel ETA', value: vessel_eta},
     ];
+
     return (
       <div className= 'booking-display'>
         {bookingDisplay.map((display, idx)=> {
@@ -28,6 +56,7 @@ class Booking extends React.Component {
           </div>
         );
         })}
+        {bl_number ? this.renderWatchButton() : ""}
       </div>
     );
   }

@@ -5,5 +5,6 @@ json.extract!(@booking,
               :destination,
               :vessel,
               :voyage,
-              :vessel_eta
+              :vessel_eta,
+              :watch
 )

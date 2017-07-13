@@ -5,3 +5,10 @@ export const fetchBooking = (booking_id) => {
     url: `bookings/${booking_id}`
   });
 };
+
+export const watchBooking = (booking_id) => {
+  return $.ajax({
+    method: "PATCH",
+    url: `bookings/${booking_id}`
+  });
+};

@@ -16,6 +16,7 @@
 
  .booking-display {
    border: 2px solid gray;
+   background-color: white;
  }
 
  .light-bluebg {
@@ -74,4 +75,22 @@ button:focus {
 
 .message {
   margin-left: 10px;
+}
+
+.watch-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.display {
+  margin: 10px;
+}
+
+div.display > * {
+  margin: 5px
+}
+
+div.display > label {
+  font-weight: bold;
 }

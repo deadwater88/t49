@@ -21,6 +21,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    bl = params[:id]
+    @booking = Booking.find_by(bl_number: bl)
+    @booking.update_attributes(watch: !@booking.watch)
+    @booking.save
+    render :show
+  end
+
   def parse_bl_response(res, bl)
     parsed = res.body.force_encoding('utf-8')
     data = parsed.split('br')
@@ -32,6 +40,10 @@ class BookingsController < ApplicationController
     voyage = data[7].match(/>([\w ]+)</)[1]
     vessel_eta = data[3].match(/>([\d-]+)</)[1]
     container = data[10].match(/wrapper_(\w+)/)[1]
+    sizetype = parsed.match(/container-type.{2,4}>(\d\w+)</)[1]
+    size = sizetype.match(/^\d+/)
+    type = sizetype.match(/[a-zA-Z]+$/)
+
     @booking = Booking.find_by(bl_number: bl_number)
 
     if @booking
@@ -41,7 +53,8 @@ class BookingsController < ApplicationController
                              destination: destination,
                              vessel: vessel,
                              voyage: voyage,
-                             vessel_eta: vessel_eta)
+                             vessel_eta: vessel_eta,
+                             updated_at: Time.now)
     else
       @booking = Booking.new(bl_number: bl_number,
                            ship_line: shipline,
@@ -50,8 +63,9 @@ class BookingsController < ApplicationController
                            vessel: vessel,
                            voyage: voyage,
                            vessel_eta: vessel_eta)
-      @booking.save
     end
+    @booking.save
+    Container.create(container_id: container, size: size, container_type: type, booking_id: bl_number)
     container = data[10].match(/wrapper_(\w+)/)[1]
     fetch_by_container(container, bl)
     @booking

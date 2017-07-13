@@ -10,9 +10,16 @@ export const fetchBooking = (booking_id) => dispatch => {
       dispatch(receiveBooking(res));
     },
     err => dispatch(receiveErrors(err.responseJSON))
-
   );
+};
 
+export const watchBooking = (booking_id) => dispatch => {
+  return BookingAPIUtil.watchBooking(booking_id).then(
+    res => {
+      dispatch(receiveBooking(res));
+    },
+    err => dispatch(receiveErrors(err.responseJSON))
+  );
 };
 
 const receiveBooking = booking => ({

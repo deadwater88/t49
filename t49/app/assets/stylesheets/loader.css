@@ -1,5 +1,15 @@
-.loader {
+.bkitem {
+  color: #4993FA;
+  right: 300px;
+}
+
+.bksearch {
   color: #ffffff;
+  left: 20px;
+  bottom: 0px;
+}
+
+.loader {
   font-size: 25px;
   text-indent: -9999em;
   overflow: hidden;
@@ -8,8 +18,7 @@
   border-radius: 50%;
   margin: 15px auto;
   position: relative;
-  left: 20px;
-  bottom: 10px;
+
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
