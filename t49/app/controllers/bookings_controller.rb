@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   def show
     bl = params[:id]
     @booking = Booking.find_by(bl_number: bl)
-    if @booking
+    if @booking && (Time.now - @booking.updated_at) < 900
       render :show
     else
       res = fetch_by_BL(bl)
@@ -32,16 +32,28 @@ class BookingsController < ApplicationController
     voyage = data[7].match(/>([\w ]+)</)[1]
     vessel_eta = data[3].match(/>([\d-]+)</)[1]
     container = data[10].match(/wrapper_(\w+)/)[1]
+    @booking = Booking.find_by(bl_number: bl_number)
 
-    @booking = Booking.new(bl_number: bl_number,
+    if @booking
+      @booking.update_attributes(bl_number: bl_number,
+                             ship_line: shipline,
+                             origin: origin,
+                             destination: destination,
+                             vessel: vessel,
+                             voyage: voyage,
+                             vessel_eta: vessel_eta)
+    else
+      @booking = Booking.new(bl_number: bl_number,
                            ship_line: shipline,
                            origin: origin,
                            destination: destination,
                            vessel: vessel,
                            voyage: voyage,
                            vessel_eta: vessel_eta)
-    @booking.save
+      @booking.save
+    end
     container = data[10].match(/wrapper_(\w+)/)[1]
+    fetch_by_container(container, bl)
     @booking
   end
 
@@ -59,6 +71,7 @@ class BookingsController < ApplicationController
   end
 
   def fetch_by_container(container_number, bl)
+
     url = URI.parse("https://www.pilship.com/shared/ajax/?fn=get_track_container_status&search_type=bl&search_type_no=#{bl}&ref_num=#{container_number}")
     req = Net::HTTP::Get.new(url.to_s)
     req.add_field 'Accept', 'application/json'
@@ -69,7 +82,10 @@ class BookingsController < ApplicationController
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     res = http.start {|http| http.request(req) }
+    parsed = res.body.force_encoding('utf-8')
     debugger;
+    data = parsed.split('tr><tr')
+        byebug
   end
 
 
