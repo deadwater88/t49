@@ -40,8 +40,8 @@ class BookingsController < ApplicationController
     vessel_eta = data[3].match(/>([\d-]+)</)[1]
     container = data[10].match(/wrapper_(\w+)/)[1]
     sizetype = parsed.match(/container-type.{2,4}>(\d\w+)</)[1]
-    size = sizetype.match(/^\d+/)
-    type = sizetype.match(/[a-zA-Z]+$/)
+    size = sizetype.match(/^\d+/)[0]
+    type = sizetype.match(/[a-zA-Z]+$/)[0]
     @booking = Booking.find_by(bl_number: bl_number)
 
     if @booking
@@ -63,7 +63,6 @@ class BookingsController < ApplicationController
                            vessel_eta: vessel_eta)
     end
     @booking.save
-    debugger;
     @container = Container.find_or_create_by(container_id: container, size: size, container_type: type, booking_id: @booking.id)
     container = data[10].match(/wrapper_(\w+)/)[1]
     fetch_by_container(container, bl)
