@@ -1,10 +1,25 @@
 import React from 'react';
+import Container from './container';
+
 
 class Booking extends React.Component {
   constructor(props){
     super(props);
     this.toggleWatchBooking = this.toggleWatchBooking.bind(this);
     this.state = {loader: false};
+  }
+
+  componentWillReceiveProps(newprops){
+    let bookingId = newprops.match.params.bookingId;
+    if (bookingId !== this.props.booking.bl_number){
+      this.props.fetchBooking(bookingId);
+    }
+
+  }
+
+  componentWillMount(){
+    let bookingId = this.props.match.params.bookingId;
+    this.props.fetchBooking(bookingId);
   }
 
   renderWatchButton(){
@@ -33,7 +48,8 @@ class Booking extends React.Component {
   }
 
   render() {
-    let {bl_number, destination, vessel, ship_line, origin, vessel_eta, voyage} = this.props.booking;
+    let {bl_number, destination, vessel, ship_line, origin, vessel_eta, voyage, containers} = this.props.booking;
+    containers = containers || [];
     let bookingDisplay = [
       {label: 'B/L Number', value: bl_number},
       {label: 'Steamship Line', value: ship_line},
@@ -56,7 +72,11 @@ class Booking extends React.Component {
           </div>
         );
         })}
+        {containers.map((containerProp, idx)=>{
+          return <Container container={containerProp} key={idx + 'container'}/>;
+        })}
         {bl_number ? this.renderWatchButton() : ""}
+
       </div>
     );
   }

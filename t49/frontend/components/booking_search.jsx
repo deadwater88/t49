@@ -16,7 +16,9 @@ class BookingSearch extends React.Component {
   submitSearch(e){
     e.preventDefault();
     this.setState({loader: true});
-    this.props.fetchBooking(this.state.input).then(()=>{
+    let query = this.state.input;
+    query = query.replace('PBAV', '');
+    this.props.fetchBooking(query).then(()=>{
       this.setState({message: 'Booking Found!'});
     },()=>{
       this.setState({message: 'Invalid Booking Number or Booking Number Not Found'});
