@@ -77,7 +77,7 @@ class BookingsController < ApplicationController
     req.add_field 'Accept-Encoding', 'deflate'
     req.add_field 'Accept-Encoding', 'sdch'
     req.add_field 'Accept-Encoding', 'br'
-    http = Net::HTTP.new(url.host, url.port)
+    http = Net::HTTP.new(url.host, url.port, :read_timeout => 5000)
     http.use_ssl = true
     res = http.start {|http| http.request(req) }
     debugger
@@ -92,7 +92,7 @@ class BookingsController < ApplicationController
     req.add_field 'Accept-Encoding', 'deflate'
     req.add_field 'Accept-Encoding', 'sdch'
     req.add_field 'Accept-Encoding', 'br'
-    http = Net::HTTP.new(url.host, url.port)
+    http = Net::HTTP.new(url.host, url.port, :read_timeout => 5000)
     http.use_ssl = true
     res = http.start {|http| http.request(req) }
     parsed = res.body.force_encoding('utf-8')
