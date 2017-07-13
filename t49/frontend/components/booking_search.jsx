@@ -10,7 +10,10 @@ class BookingSearch extends React.Component {
   updateInput(e) {
     e.preventDefault();
     this.setState({input: e.currentTarget.value});
+  }
 
+  fetchBooking(e){
+    e.preventDefault();
   }
 
 
@@ -18,14 +21,21 @@ class BookingSearch extends React.Component {
 
     return (
       <div>
-        <form>
-          <label>
-            Search by Booking Number
-            <input onChange={this.updateInput} placeholder={'ex PABVTXG790195200'} value={this.state.input}>
+        <header>
+          T49 Project
 
-            </input>
-          </label>
-        </form>
+          <form>
+            <label>
+              Search by Booking Number:
+              <input onChange={this.updateInput} placeholder={'ex PABVTXG790195200'} value={this.state.input}>
+
+              </input>
+            </label>
+          </form>
+          <button className='search button'>
+            Search
+          </button>
+        </header>
 
       </div>
     );

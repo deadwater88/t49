@@ -1,11 +1,11 @@
 import React from 'react';
-import Bookings from './bookings'
+import BookingSearch from './booking_search'
 
 
 const App = (props) =>  {
   return (
   <div id="AppElement">
-    <Bookings/>
+    <BookingSearch/>
   </div>
 );
 
