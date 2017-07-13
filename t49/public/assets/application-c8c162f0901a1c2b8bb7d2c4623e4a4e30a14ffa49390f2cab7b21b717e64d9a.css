@@ -88,10 +88,12 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-html, body, div, span, applet, object, iframe,
+}
+/* line 1, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
+del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li, span,
 fieldset, form, label, legend, input
@@ -107,38 +109,45 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
   font-family: Helvetica, Arial, sans-serif;
 }
+
 /* remember to define focus styles! */
+/* line 21, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
 :focus {
   outline: 0;
 }
+
+/* line 24, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
 body {
   line-height: 1;
   color: black;
   background-color: #E9EBEE;
 }
+
+/* line 29, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
 ol, ul {
   list-style: none;
 }
+
 /* tables still need 'cellspacing="0"' in the markup */
+/* line 33, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
 table {
   border-collapse: separate;
   border-spacing: 0;
 }
+
+/* line 37, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
 }
 
-
-blockquote, q {
-  quotes: "" "";
-}
-
+/* line 43, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
 h4 {
   color: #90949c;
   font-size: 14px;
 }
 
+/* line 48, /home/davidw/Documents/t49/t49/app/assets/stylesheets/reset.scss */
 button {
   border: none;
   outline: none;
@@ -154,10 +163,9 @@ button {
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
 
 
- */
+*/
 
 
  .booking-display {
