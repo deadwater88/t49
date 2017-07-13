@@ -1,11 +1,12 @@
 import React from 'react';
-import BookingSearch from './booking_search'
-
+import BookingSearchContainer from './booking_search_container';
+import BookingContainer from './booking_container';
 
 const App = (props) =>  {
   return (
   <div id="AppElement">
-    <BookingSearch/>
+    <BookingSearchContainer/>
+    <BookingContainer/>
   </div>
 );
 

@@ -6,7 +6,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const fetchBooking = (booking_id) => dispatch => {
   return BookingAPIUtil.fetchBooking(booking_id).then(
-    res =>{
+    res => {
       dispatch(receiveBooking(res));
     },
     err => dispatch(receiveErrors(err.responseJSON))

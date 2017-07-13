@@ -1,15 +1,27 @@
+require 'net/http'
+require 'byebug'
+require 'nokogiri'
+require 'open-uri'
+
 class BookingsController < ApplicationController
 
   def show
     bl = params[:id]
-
-    res = fetch_by_BL(bl)
-
-    container = parseBLresponse(res)
-
+    @booking = Booking.find_by(bl_number: bl)
+    if @booking
+      render :show
+    else
+      res = fetch_by_BL(bl)
+      if res.message == "OK"
+        @booking = parse_bl_response(res, bl)
+        render :show
+      else
+        render json: ['Booking could not be found'], status: 404
+      end
+    end
   end
 
-  def parseBLresponse(res, bl)
+  def parse_bl_response(res, bl)
     parsed = res.body.force_encoding('utf-8')
     data = parsed.split('br')
     bl_number = bl
@@ -22,13 +34,13 @@ class BookingsController < ApplicationController
     container = data[10].match(/wrapper_(\w+)/)[1]
 
     @booking = Booking.new(bl_number: bl_number,
-                          ship_line: shipline,
-                          origin: origin,
-                          destination: destination,
-                          vessel: vessel,
-                          voyage: voyage,
-                          vessel_eta: vessel_eta)
-    booking.save
+                           ship_line: shipline,
+                           origin: origin,
+                           destination: destination,
+                           vessel: vessel,
+                           voyage: voyage,
+                           vessel_eta: vessel_eta)
+    @booking.save
     container = data[10].match(/wrapper_(\w+)/)[1]
     @booking
   end
@@ -43,13 +55,20 @@ class BookingsController < ApplicationController
     req.add_field 'Accept-Encoding', 'br'
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
-    res = http.start {|http|
-      http.request(req)
-    }
+    res = http.start {|http| http.request(req) }
   end
 
-  def fetch_by_container
-
+  def fetch_by_container(container_number, bl)
+    url = URI.parse("https://www.pilship.com/shared/ajax/?fn=get_track_container_status&search_type=bl&search_type_no=#{bl}&ref_num=#{container_number}")
+    req = Net::HTTP::Get.new(url.to_s)
+    req.add_field 'Accept', 'application/json'
+    req.add_field 'Accept-Encoding', 'gzip'
+    req.add_field 'Accept-Encoding', 'deflate'
+    req.add_field 'Accept-Encoding', 'sdch'
+    req.add_field 'Accept-Encoding', 'br'
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    res = http.start {|http| http.request(req) }
   end
 
 

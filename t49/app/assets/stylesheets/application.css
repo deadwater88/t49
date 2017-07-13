@@ -13,3 +13,65 @@
  *= require_tree .
  *= require_self
  */
+
+ .booking-display {
+   border: 2px solid gray;
+ }
+
+ .light-bluebg {
+   background-color: #4993FA;
+ }
+
+ header {
+   display: flex;
+   align-items: flex-start;
+ }
+
+.search-Container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: flex-start;
+}
+
+.search-Container > * {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.white-text {
+  color: white;
+}
+
+.search-Container input {
+  margin-left: 10px;
+}
+
+button {
+  background-color: rgb(243, 156, 18);
+  border-radius: 4px;
+  color: white;
+  height: 40px;
+  width: 160px;
+  transition: all 0.2s ease-in-out;
+  font-size: 18px;
+}
+
+.button-Container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(200, 127, 10);
+}
+
+button:focus {
+  box-shadow: rgba(243, 156, 18, 0.5) 0px 0px 0px 2px;
+}
+
+.message {
+  margin-left: 10px;
+}
