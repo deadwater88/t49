@@ -34,7 +34,6 @@ class Booking < ApplicationRecord
                            vessel_eta: vessel_eta)
     end
     @booking.save
-    container = data[10].match(/wrapper_(\w+)/)[1]
     fetch_by_container(container, bl)
     @booking
   end

@@ -1,4 +1,6 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
+
 
 class BookingSearch extends React.Component {
   constructor(props){
@@ -17,14 +19,15 @@ class BookingSearch extends React.Component {
     e.preventDefault();
     this.setState({loader: true});
     let query = this.state.input;
-    query = query.replace('PBAV', '');
     this.props.fetchBooking(query).then(()=>{
+      browserHistory.push(`/bookings/${query}`);
       this.setState({message: 'Booking Found!'});
     },()=>{
       this.setState({message: 'Invalid Booking Number or Booking Number Not Found'});
     }).always(()=>{
       this.setState({loader: false});
     });
+
   }
 
 

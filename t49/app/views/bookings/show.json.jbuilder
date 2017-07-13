@@ -1,5 +1,4 @@
 json.extract!(@booking,
-              :bl_number,
               :ship_line,
               :origin,
               :destination,
@@ -8,6 +7,8 @@ json.extract!(@booking,
               :vessel_eta,
               :watch
 )
+
+json.bl_number (@booking.bl_number)
 
 
 

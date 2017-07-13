@@ -5,7 +5,7 @@ require 'open-uri'
 class BookingsController < ApplicationController
 
   def show
-    bl = params[:id]
+    bl = params[:id].sub('PABV', '').upcase
     @booking = Booking.find_by(bl_number: bl)
     if @booking && (Time.now - @booking.updated_at) < 900
       render :show
@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def update
-    bl = params[:id]
+    bl = params[:id].sub('PABV', '').upcase
     @booking = Booking.find_by(bl_number: bl)
     @booking.update_attributes(watch: !@booking.watch)
     @booking.save
@@ -80,6 +80,7 @@ class BookingsController < ApplicationController
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     res = http.start {|http| http.request(req) }
+    debugger
   end
 
   def fetch_by_container(container_number, bl)
