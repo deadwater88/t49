@@ -83,9 +83,8 @@ class BookingsController < ApplicationController
     http.use_ssl = true
     res = http.start {|http| http.request(req) }
     parsed = res.body.force_encoding('utf-8')
-    debugger;
     data = parsed.split('tr><tr')
-        byebug
+    time = /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/
   end
 
 
