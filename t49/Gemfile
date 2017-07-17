@@ -26,7 +26,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 gem 'sidekiq'
-gem 'rake'
 # Use Redis adapter to run Action Cable in production
 gem 'redis'
 # Use ActiveModel has_secure_password
