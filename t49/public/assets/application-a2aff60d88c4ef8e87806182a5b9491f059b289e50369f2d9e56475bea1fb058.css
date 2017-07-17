@@ -1,0 +1,263 @@
+.bkitem {
+  color: #4993FA;
+  right: 300px;
+}
+
+.bksearch {
+  color: #ffffff;
+  left: 20px;
+  bottom: 0px;
+}
+
+.loader {
+  font-size: 25px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 15px auto;
+  position: relative;
+
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
+@-webkit-keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@-webkit-keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* line 1, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li, span,
+fieldset, form, label, legend, input
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* remember to define focus styles! */
+/* line 21, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+:focus {
+  outline: 0;
+}
+
+/* line 24, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+body {
+  line-height: 1;
+  color: black;
+  background-color: #E9EBEE;
+}
+
+/* line 29, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+/* line 33, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* line 37, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+
+/* line 43, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+h4 {
+  color: #90949c;
+  font-size: 14px;
+}
+
+/* line 48, /home/deadwater88/Documents/t49/t49/app/assets/stylesheets/reset.scss */
+button {
+  border: none;
+  outline: none;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+
+
+*/
+
+
+ .booking-display {
+   border: 2px solid gray;
+   background-color: white;
+ }
+
+ .light-bluebg {
+   background-color: #4993FA;
+ }
+
+ header {
+   display: flex;
+   align-items: flex-start;
+ }
+
+.search-Container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: flex-start;
+}
+
+.search-Container > * {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.white-text {
+  color: white;
+}
+
+.search-Container input {
+  margin-left: 10px;
+}
+
+button {
+  background-color: rgb(243, 156, 18);
+  border-radius: 4px;
+  color: white;
+  height: 40px;
+  width: 160px;
+  transition: all 0.2s ease-in-out;
+  font-size: 18px;
+}
+
+.button-Container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(200, 127, 10);
+}
+
+button:focus {
+  box-shadow: rgba(243, 156, 18, 0.5) 0px 0px 0px 2px;
+}
+
+.message {
+  margin-left: 10px;
+}
+
+.watch-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+div.display {
+  margin: 10px;
+}
+
+div.display > * {
+  margin: 5px
+}
+
+div.display > label {
+  font-weight: bold;
+}
+
+.booking-display {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
