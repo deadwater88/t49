@@ -45,7 +45,7 @@ class BookingSearch extends React.Component {
                 </input>
               </label>
             <div className="button-Container">
-              <button onClick={this.submitSearch} className='search button'>
+              <button onClick={this.submitSearch.bind(this)} className='search button'>
                 Search
               </button>
               {this.state.loader ? <div className="loader bksearch">Loading...</div> : <div className='message'> {this.state.message} </div>}
