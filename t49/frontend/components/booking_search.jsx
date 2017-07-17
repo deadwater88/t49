@@ -20,7 +20,6 @@ class BookingSearch extends React.Component {
     this.setState({loader: true});
     let query = this.state.input;
     this.props.fetchBooking(query).then(()=>{
-      console.log(this.props.history);
       this.props.history.push(`/bookings/${query}`);
       this.setState({message: 'Booking Found!'});
     },()=>{
