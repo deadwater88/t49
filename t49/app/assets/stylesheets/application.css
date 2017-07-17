@@ -93,3 +93,16 @@ div.display > * {
 div.display > label {
   font-weight: bold;
 }
+
+.booking-display {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}

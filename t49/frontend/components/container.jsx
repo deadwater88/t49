@@ -10,7 +10,7 @@ const Container = (props) =>{
   ];
   return(
     <div>
-      Container Information:
+      <h2> Container Information: </h2> 
       {containerDisplay.map((display, idx)=> {
         return (
         <div className='display' key={idx + 'containerDisplay'}>

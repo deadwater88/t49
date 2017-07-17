@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { watchBooking, fetchBooking } from '../actions/booking_actions';
 import Booking from './booking';
+import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = (state) =>({
@@ -11,5 +12,5 @@ const mapDispatchToProps = (dispatch) => ({
    fetchBooking: (booking_id) => dispatch(fetchBooking(booking_id))
 });
 
-export default connect(mapStateToProps,
-               mapDispatchToProps)(Booking);
+export default withRouter(connect(mapStateToProps,
+               mapDispatchToProps)(Booking));

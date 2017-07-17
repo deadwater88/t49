@@ -57,4 +57,4 @@ class BookingSearch extends React.Component {
   }
 }
 
-export default withRouter(BookingSearch);
+export default BookingSearch;

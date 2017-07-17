@@ -63,6 +63,7 @@ class Booking extends React.Component {
 
     return (
       <div className= 'booking-display'>
+        <h1> Booking Information: </h1>
         {bookingDisplay.map((display, idx)=> {
           return (
           <div className='display' key={idx + 'display'}>
