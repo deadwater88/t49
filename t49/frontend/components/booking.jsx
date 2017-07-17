@@ -10,9 +10,10 @@ class Booking extends React.Component {
   }
 
   componentWillReceiveProps(newprops){
-    let bookingId = newprops.match.params.bookingId;
-    if (bookingId !== this.props.booking.bl_number){
-      this.props.fetchBooking(bookingId);
+    let oldbookingId = this.props.match.params.bookingId;
+    let newbookingId = newprops.match.params.bookingId;
+    if (newbookingId !== this.props.booking.bl_number && oldbookingId !== newbookingId ){
+      this.props.fetchBooking(newbookingId);
     }
 
   }

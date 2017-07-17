@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 
 class BookingSearch extends React.Component {
@@ -20,10 +20,10 @@ class BookingSearch extends React.Component {
     this.setState({loader: true});
     let query = this.state.input;
     this.props.fetchBooking(query).then(()=>{
-      browserHistory.push(`/bookings/${query}`);
+      this.props.history.push(`/bookings/${query}`);
       this.setState({message: 'Booking Found!'});
     },()=>{
-      this.setState({message: 'Invalid Booking Number or Booking Number Not Found'});
+      this.setState({message: `"${query}"  Invalid Booking Number or Booking Number Not Found'`});
     }).always(()=>{
       this.setState({loader: false});
     });
@@ -57,4 +57,4 @@ class BookingSearch extends React.Component {
   }
 }
 
-export default BookingSearch;
+export default withRouter(BookingSearch);
