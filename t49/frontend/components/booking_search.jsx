@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
 
 class BookingSearch extends React.Component {
@@ -20,6 +20,7 @@ class BookingSearch extends React.Component {
     this.setState({loader: true});
     let query = this.state.input;
     this.props.fetchBooking(query).then(()=>{
+      console.log(this.props.history);
       this.props.history.push(`/bookings/${query}`);
       this.setState({message: 'Booking Found!'});
     },()=>{
@@ -43,13 +44,13 @@ class BookingSearch extends React.Component {
                 <input onChange={this.updateInput} placeholder={'ex PABVTXG790195200'} value={this.state.input}>
                 </input>
               </label>
-            </form>
             <div className="button-Container">
               <button onClick={this.submitSearch} className='search button'>
                 Search
               </button>
               {this.state.loader ? <div className="loader bksearch">Loading...</div> : <div className='message'> {this.state.message} </div>}
             </div>
+          </form>
           </div>
         </header>
       </div>
