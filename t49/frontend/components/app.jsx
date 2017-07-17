@@ -6,10 +6,12 @@ import BookingContainer from './booking_container';
 const App = (props) =>  {
   return (
   <div id="AppElement">
-    <Redirect to={'/bookings/'} />
     <BookingSearchContainer/>
-    <Route path="/bookings/:bookingId" component={BookingContainer}>
-    </Route>
+    <Switch>
+      <Route path="/bookings/:bookingId" component={BookingContainer}>
+      </Route>
+      <Redirect from="/" to='/bookings/' />
+    </Switch>
   </div>
 );
 
