@@ -172,7 +172,6 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails (~> 5.0.3)
-  rake
   redis
   sass-rails
   sidekiq
